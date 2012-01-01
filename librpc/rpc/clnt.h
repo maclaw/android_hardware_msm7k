@@ -31,24 +31,11 @@
  * clnt.h - Client side remote procedure call interface.
  *
  * Copyright (C) 1984, Sun Microsystems, Inc.
-<<<<<<< HEAD
- * Copyright (c) 2011, Code Aurora Forum.
-=======
->>>>>>> 7d8d81d3474a3605127222ce35cd1be78298b297
  */
 
 #ifndef _RPC_CLNT_H
 #define _RPC_CLNT_H 1
 
-<<<<<<< HEAD
-
-/*
- * By convention, procedure 0 takes null arguments and returns them
- */
-#define NULLPROC ((u_long)0)
-
-=======
->>>>>>> 7d8d81d3474a3605127222ce35cd1be78298b297
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -106,30 +93,11 @@ enum clnt_stat {
    * asynchronous errors
    */
   RPC_INPROGRESS = 24,
-<<<<<<< HEAD
-  RPC_STALERACHANDLE = 25,
-  RPC_SUBSYSTEM_RESTART = 26
-=======
   RPC_STALERACHANDLE = 25
->>>>>>> 7d8d81d3474a3605127222ce35cd1be78298b297
 };
 
 struct CLIENT;
 typedef struct CLIENT CLIENT;
-<<<<<<< HEAD
-
-/* Reset notifiction callback.
- *
- * Called when the reset state changes for the client.
- */
-typedef void (*clnt_reset_notif_cb)
-(
-  CLIENT* clnt,
-  enum rpc_reset_event event
-);
-
-=======
->>>>>>> 7d8d81d3474a3605127222ce35cd1be78298b297
 /* client call callback. 
  * Callback called when the reply is recieved or there is an error in
  * getting reply.
@@ -150,14 +118,11 @@ typedef void (*clnt_call_non_blocking_cb)
   rpc_reply_header error
 );
 
-<<<<<<< HEAD
-=======
 /*
  * By convention, procedure 0 takes null arguments and returns them
  */
 #define NULLPROC ((rpcproc_t)0)
 
->>>>>>> 7d8d81d3474a3605127222ce35cd1be78298b297
 /*===========================================================================
 FUNCTION CLNT_CALL
 
@@ -246,65 +211,6 @@ extern void clnt_destroy( CLIENT *xdr );
 extern CLIENT * clnt_create ( char * host, uint32 prog, uint32 vers,
                               char * proto);
 
-<<<<<<< HEAD
-/*===========================================================================
-FUNCTION clnt_register_reset_notification_cb
-
-DESCRIPTION
-  Registers a callback that is called if a subsystem restart (modem restart)
-  is encountered. If a callback already exists, it will be replaced with the
-  new function.
-
-  Note that this callback is made on the context of the
-  receive thread, so blocking calls cannot be made.
-
-  Two calls will be generated.  The first will be with an event type of
-  RPC_SUBSYSTEM_RESTART_BEGIN which signals that the modem has started its
-  reset.  Once the modem comes out of reset, another call will be generated
-  with the event type of RPC_SUBSYSTEM_RESTART_END.
-
-DEPENDENCIES
-  None.
-
-ARGUMENTS
-  client - pointer to the client
-  cb - callback function of type clnt_reset_notif_cb
-
-RETURN VALUE
-  0 - if successful
-  error code otherwise
-
-SIDE EFFECTS
-  None.
-===========================================================================*/
-extern int clnt_register_reset_notification_cb(CLIENT *client, clnt_reset_notif_cb cb);
-
-/*===========================================================================
-FUNCTION clnt_unregister_reset_notification_cb
-
-DESCRIPTION
-  Unregisters any callback registered by clnt_register_reset_notification_cb.
-
-  The previous callback function is returned.
-
-DEPENDENCIES
-  None.
-
-ARGUMENTS
-  client - pointer to the client
-
-RETURN VALUE
-  Pointer to previous callback (NULL if no previous callback registered).
-  NULL if client is NULL
-
-SIDE EFFECTS
-  None.
-===========================================================================*/
-extern clnt_reset_notif_cb clnt_unregister_reset_notification_cb(CLIENT *client);
-
-
-=======
->>>>>>> 7d8d81d3474a3605127222ce35cd1be78298b297
 #ifdef __cplusplus
 }
 #endif
