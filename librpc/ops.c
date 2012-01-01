@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-/* Copyright (c) 2010, Code Aurora Forum. */
-
-=======
->>>>>>> 7d8d81d3474a3605127222ce35cd1be78298b297
 #include <rpc/rpc.h>
 #include <rpc/rpc_router_ioctl.h>
 #include <debug.h>
@@ -15,39 +10,6 @@
 #include <errno.h>
 
 #define DUMP_DATA 0
-<<<<<<< HEAD
-/* Wait for server in seconds, 0 - no wait, -ve - infinite wait */
-#define SERVER_WAIT_DURATION 15
-#define POLL_INTERVAL_MS 500
-
-int r_open(const char *router)
-{
-  char name[32];
-  struct stat statbuf;
-  int handle;
-  struct timespec polling_timer;
-  int poll_count;
-
-  if (stat("/dev/oncrpc", &statbuf) == 0)
-      snprintf(name, sizeof(name), "/dev/oncrpc/%s", router);
-  else
-      snprintf(name, sizeof(name), "/dev/%s", router);
-
-  polling_timer.tv_sec = 0;
-  polling_timer.tv_nsec = (POLL_INTERVAL_MS * 1000000);
-  poll_count = SERVER_WAIT_DURATION * (1000 / POLL_INTERVAL_MS);
-
-  while (stat(name, &statbuf) && poll_count) {
-      nanosleep(&polling_timer, NULL);
-      if (poll_count > 0)
-          poll_count--;
-  }
-
-  handle = open(name, O_RDWR, 0);
-
-  if(handle < 0)
-      E("error opening %s: %s\n", name, strerror(errno));
-=======
 
 int r_open(const char *router)
 {
@@ -55,7 +17,6 @@ int r_open(const char *router)
 
   if(handle < 0)
       E("error opening %s: %s\n", router, strerror(errno));
->>>>>>> 7d8d81d3474a3605127222ce35cd1be78298b297
   return handle;
 }
 
