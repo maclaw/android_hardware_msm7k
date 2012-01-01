@@ -42,10 +42,4 @@ struct rpcrouter_ioctl_server_args {
 #define RPC_ROUTER_IOCTL_UNREGISTER_SERVER \
         _IOWR(RPC_ROUTER_IOCTL_MAGIC, 3, unsigned int)
 
-<<<<<<< HEAD
-#define RPC_ROUTER_IOCTL_CLEAR_NETRESET \
-  _IOWR(RPC_ROUTER_IOCTL_MAGIC, 4, unsigned int)
-
-=======
->>>>>>> 7d8d81d3474a3605127222ce35cd1be78298b297
 #endif /* RPC_IOCTL_H */
