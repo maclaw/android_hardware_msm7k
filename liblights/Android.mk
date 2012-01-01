@@ -19,11 +19,7 @@ LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := lights.c
-<<<<<<< HEAD
-
-=======
 LOCAL_MODULE_TAGS := optional
->>>>>>> 7d8d81d3474a3605127222ce35cd1be78298b297
 
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 
@@ -31,9 +27,4 @@ LOCAL_SHARED_LIBRARIES := liblog
 
 LOCAL_MODULE := lights.$(TARGET_BOARD_PLATFORM)
 
-<<<<<<< HEAD
-LOCAL_MODULE_TAGS := optional
-
-=======
->>>>>>> 7d8d81d3474a3605127222ce35cd1be78298b297
 include $(BUILD_SHARED_LIBRARY)
